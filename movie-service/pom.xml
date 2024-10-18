@@ -12,7 +12,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.10</version> <!-- Make sure to use the appropriate Spring Boot version -->
+        <version>2.7.10</version> <!-- Spring Boot version -->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -43,22 +43,24 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!-- Spring Boot Docker Support (optional, for Docker builds) -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Spring Boot Maven Plugin (for packaging the app as a JAR) -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- Define the main class for the Spring Boot application -->
+                    <mainClass>com.example.movieticket.MovieTicketServiceApplication</mainClass>  <!-- Update with your actual main class -->
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <properties>
+        <!-- Java version to compile the project -->
+        <java.version>11</java.version>
+    </properties>
 </project>
+
