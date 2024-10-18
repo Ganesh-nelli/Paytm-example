@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: movie-ticket
+  template:
+    metadata:
+      labels:
+        app: movie-ticket
+    spec:
+      containers:
+      - name: movie-ticket
+        image: <your_docker_registry>/movieticketservice
+        ports:
+        - containerPort: 8080
+

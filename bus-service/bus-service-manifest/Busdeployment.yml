@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bus-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bus-ticket
+  template:
+    metadata:
+      labels:
+        app: bus-ticket
+    spec:
+      containers:
+      - name: bus-ticket
+        image: <your_docker_registry>/busticketservice
+        ports:
+        - containerPort: 8080
+

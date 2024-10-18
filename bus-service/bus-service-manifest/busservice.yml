@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bus-service
+spec:
+  selector:
+    app: bus-ticket
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: train-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: train-ticket
+  template:
+    metadata:
+      labels:
+        app: train-ticket
+    spec:
+      containers:
+      - name: train-ticket
+        image: <your_docker_registry>/trainticketservice
+        ports:
+        - containerPort: 8080
+
